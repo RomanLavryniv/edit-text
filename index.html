@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: #f0d8ac;
+        }
+        .container {
+            width: 50%;
+            text-align: center;
+            border: 3px groove #ff6a00;
+            padding: 10px;
+            color: #c01515;
+        }
+        textarea {
+            width: 100%;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span>Press (Ctrl + E) for edit text</span>
+        <br>
+        <span>Press (Ctrl + S) for save text</span>
+        <hr align="left" width="100%" size="3" color="#D2691E" />
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo illum molestias nulla quis molestiae illo,
+            saepe voluptates quibusdam, distinctio velit tenetur. Pariatur, repellat? Ab distinctio, iste non rem quia
+            minus?
+            Neque corporis nisi enim natus cum eius a maiores doloribus rerum sunt, atque numquam reprehenderit
+            consectetur rem ipsam laboriosam tenetur tempora repellendus dicta officiis beatae commodi facilis, quidem
+            hic? Praesentium.
+            Accusamus repudiandae velit blanditiis soluta atque deserunt, quibusdam vel perferendis! Dolor vitae nemo a
+            temporibus obcaecati, quis enim odit magni accusamus iure! Asperiores totam nihil expedita. Odio incidunt
+            ipsa quam.
+            In facilis aut libero explicabo doloremque itaque delectus ab, dolorum nulla fuga vitae sint maiores
+            laborum. Non provident amet suscipit, maiores quis aperiam eveniet, distinctio consequuntur nisi a quos
+            cumque!
+            Nobis fugit mollitia error, eum odio, dolor magnam vitae voluptatem voluptas in a ea accusantium excepturi
+            omnis repellat at ex? Iusto voluptates officiis dignissimos, labore itaque vel magni inventore temporibus.
+            Ducimus amet, eveniet magni consequuntur quod illo! Modi, repudiandae non exercitationem et laboriosam
+            necessitatibus distinctio delectus voluptatum cum, saepe animi. Obcaecati labore ipsum in. Minus, numquam
+            nulla. Vitae, quas illo.
+            Optio ea voluptates inventore odit voluptatibus est, delectus odio, alias itaque id, asperiores provident
+            sit incidunt quidem vero minus. Quas nisi debitis quibusdam soluta voluptates omnis sint consequatur quidem
+            voluptatum.
+            Illo vitae, obcaecati saepe tempora itaque ipsa, blanditiis qui soluta impedit minima eum doloribus quasi
+            quam asperiores necessitatibus, error dolore odit reprehenderit voluptatem ullam nesciunt atque id
+            accusamus? Tempore, sint!
+            Pariatur vero repellendus mollitia dolorem sapiente ipsam enim laborum dolorum odio odit explicabo molestiae
+            perspiciatis iusto voluptate est, assumenda sint beatae blanditiis quasi harum provident, esse optio
+            distinctio minima. Optio!
+            Aliquid eius doloribus dolor labore nihil saepe nesciunt minima quasi corporis dolorum architecto numquam
+            magni cupiditate, earum delectus porro quaerat tempora temporibus ab accusantium aut id? Atque voluptatum
+            numquam aliquid!
+        </div>
+    </div>
+    <script>
+        document.body.addEventListener("keydown", keyPress);
+        function keyPress(e) {
+            if ((e.code === "KeyS" || e.code === "KeyE") && e.ctrlKey) {
+                e.preventDefault();
+                let el = document.querySelector("hr").nextElementSibling;
+                if (e.code === "KeyS" && el.nodeName === "TEXTAREA") {
+                    let newEl = document.createElement("div");
+                    newEl.textContent = el.value; // Исправил
+                    el.replaceWith(newEl);
+                }
+                else if (e.code === "KeyE" && el.nodeName === "DIV") {
+                    let newEl = document.createElement("textarea");
+                    newEl.textContent = el.textContent;
+                    el.replaceWith(newEl);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
